@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Contact — ShopFast</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="logo">ShopFast</div>
+      <nav class="main-nav" id="mainNav">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="index.html" class="nav-link">Shop</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+      <div class="header-actions">
+        <button id="menuToggle" class="icon-btn mobile-only" aria-label="Toggle menu">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container" style="padding:28px 16px;">
+    <section class="contact-hero" style="text-align:center;padding:20px 0;">
+      <h1>Get in touch</h1>
+      <p class="muted">Questions about your order, returns, or product info? We’re happy to help.</p>
+    </section>
+
+    <section class="contact-grid" style="display:grid;grid-template-columns:1fr 420px;gap:24px;">
+      <div class="contact-form card" style="padding:20px;">
+        <form id="contactForm" novalidate>
+          <div style="display:grid;gap:12px;">
+            <label>
+              Full name
+              <input name="name" id="c_name" required placeholder="Jane Doe" />
+            </label>
+            <label>
+              Email
+              <input name="email" id="c_email" type="email" required placeholder="you@example.com" />
+            </label>
+            <label>
+              Subject
+              <input name="subject" id="c_subject" required placeholder="Order question" />
+            </label>
+            <label>
+              Message
+              <textarea name="message" id="c_message" rows="6" required placeholder="Tell us what's up"></textarea>
+            </label>
+
+            <div style="display:flex;gap:8px;align-items:center;justify-content:space-between;">
+              <div class="muted" id="formStatus" aria-live="polite"></div>
+              <button type="submit" class="primary-btn">Send message</button>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <aside class="card" style="padding:20px;">
+        <h3>Contact info</h3>
+        <p class="muted">Email: support@shopfast.example<br/>Phone: (555) 123-4567</p>
+        <hr style="border:none;border-top:1px solid #eef4fb;margin:12px 0"/>
+        <h4>Opening hours</h4>
+        <p class="muted">Mon–Fri: 9am — 6pm<br/>Sat: 10am — 3pm</p>
+        <hr style="border:none;border-top:1px solid #eef4fb;margin:12px 0"/>
+        <h4>Address</h4>
+        <p class="muted">123 Market St, Suite 400<br/>City, State ZIP</p>
+      </aside>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© <span id="year"></span> ShopFast</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    // Contact form handling (add to script.js or keep inline)
+    (function(){
+      const form = document.getElementById('contactForm');
+      const status = document.getElementById('formStatus');
+      form.addEventListener('submit', async (e)=>{
+        e.preventDefault();
+        status.textContent = '';
+        const data = {
+          name: form.c_name.value.trim(),
+          email: form.c_email.value.trim(),
+          subject: form.c_subject.value.trim(),
+          message: form.c_message.value.trim()
+        };
+        if(!data.name || !data.email || !data.subject || !data.message){
+          status.textContent = 'Please complete all fields.';
+          status.style.color = '#b91c1c';
+          return;
+        }
+        // Basic email pattern check
+        if(!/^\S+@\S+\.\S+$/.test(data.email)){
+          status.textContent = 'Please enter a valid email.';
+          status.style.color = '#b91c1c';
+          return;
+        }
+        // Mock submit (replace with real API call)
+        status.style.color = '#0b7df0';
+        status.textContent = 'Sending…';
+        await new Promise(r=>setTimeout(r, 900));
+        status.style.color = 'green';
+        status.textContent = 'Message sent — we will reply within 1 business day.';
+        form.reset();
+      });
+      // set year
+      document.getElementById('year').textContent = new Date().getFullYear();
+    })();
+  </script>
+</body>
+</html>

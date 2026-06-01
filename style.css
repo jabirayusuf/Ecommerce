@@ -1,0 +1,123 @@
+:root{
+    --bg:#f6f7fb; --card:#fff; --accent:#0b7df0; --muted:#6b7280; --max-width:1100px;
+    --shadow: 0 6px 18px rgba(12,20,40,0.08);
+    font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  }
+  
+  *{box-sizing:border-box}
+  html,body{height:100%;margin:0;background:var(--bg);color:#0f1724}
+  .container{max-width:var(--max-width);margin:0 auto;padding:0 16px}
+  .site-header{background:linear-gradient(180deg,#fff, #fbfdff);border-bottom:1px solid #e6eef9;position:sticky;top:0;z-index:30}
+  .header-inner{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+  .logo{font-weight:700;color:var(--accent);font-size:1.25rem}
+  .main-nav{display:flex;gap:12px}
+  .nav-link{color:var(--muted);text-decoration:none;padding:8px;border-radius:8px}
+  .nav-link:hover{background:#eef6ff;color:var(--accent)}
+  .header-actions{display:flex;gap:8px;align-items:center}
+  .search{padding:8px 12px;border-radius:8px;border:1px solid #e6eef7;background:#fff}
+  .icon-btn{background:transparent;border:1px solid transparent;padding:8px;border-radius:8px;cursor:pointer}
+  .icon-btn:hover{background:#f1f7ff}
+  .cart-count{background:var(--accent);color:#fff;padding:0 6px;border-radius:999px;margin-left:8px;font-size:.8rem}
+  .primary-btn{background:var(--accent);color:#fff;padding:10px 14px;border:none;border-radius:10px;cursor:pointer}
+  .primary-btn:hover{filter:brightness(.95)}
+  .hero{text-align:center;padding:36px 0 12px}
+  .hero h1{margin:.2rem 0;font-size:1.75rem}
+  .controls{display:flex;justify-content:center;padding:12px 0}
+  .filters{display:flex;gap:12px;align-items:center}
+  .filters label{font-size:.9rem;color:var(--muted)}
+  .product-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;padding:18px 0}
+  .card{background:var(--card);border-radius:12px;padding:12px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:10px}
+  .product-img{height:160px;border-radius:10px;background-size:cover;background-position:center}
+  .title{font-weight:600;margin:0;font-size:1rem}
+  .price{color:var(--accent);font-weight:700}
+  .card-foot{display:flex;justify-content:space-between;align-items:center;margin-top:auto}
+  .badge{background:#f3f6ff;color:var(--accent);padding:6px;border-radius:8px;font-size:.8rem}
+  
+  /* Cart sidebar */
+  .cart-sidebar{position:fixed;right:0;top:0;height:100%;width:360px;max-width:95%;background:var(--card);box-shadow:-12px 0 40px rgba(6,18,44,0.12);transform:translateX(110%);transition:transform .28s ease;z-index:40;display:flex;flex-direction:column}
+  .cart-sidebar.open{transform:translateX(0)}
+  .cart-header{display:flex;justify-content:space-between;align-items:center;padding:16px 18px;border-bottom:1px solid #f0f3f9}
+  .cart-items{padding:12px 18px;overflow:auto;flex:1}
+  .cart-item{display:flex;gap:10px;align-items:center;padding:10px 0;border-bottom:1px dashed #eef4fb}
+  .cart-item img{width:64px;height:64px;border-radius:8px;object-fit:cover}
+  .qty-controls{display:flex;gap:6px;align-items:center}
+  .qty-controls button{padding:4px 8px;border-radius:6px;border:1px solid #e6eef9;background:#fff;cursor:pointer}
+  .cart-footer{padding:12px 18px;border-top:1px solid #f0f3f9}
+  .empty{color:var(--muted);text-align:center;padding:24px 0}
+  
+  /* Overlay */
+  .overlay{position:fixed;inset:0;background:rgba(5,10,25,0.45);z-index:35}
+  
+  /* Footer */
+  .site-footer{padding:20px 0;text-align:center;color:var(--muted)}
+  
+  /* Responsive */
+  @media (max-width:1000px){
+    .product-grid{grid-template-columns:repeat(3,1fr)}
+  }
+  @media (max-width:760px){
+    .main-nav{display:none}
+    .mobile-only{display:inline-block}
+    .product-grid{grid-template-columns:repeat(2,1fr)}
+    .hero h1{font-size:1.25rem}
+    .header-inner{gap:8px}
+    .search{display:none}
+  }
+  @media (max-width:420px){
+    .product-grid{grid-template-columns:1fr}
+    .header-actions .icon-btn{padding:6px}
+  }
+  
+
+  /* conatact page */
+  /* Contact page styles — add to styles.css or as a separate contact.css */
+
+.contact-hero { padding: 24px 0 12px; }
+.contact-hero h1 { margin: 0 0 6px; font-size: 1.6rem; }
+.contact-hero .muted { color: var(--muted); font-size: 0.95rem; }
+
+/* Layout */
+.contact-grid { display: grid; grid-template-columns: 1fr 420px; gap: 24px; align-items: start; padding-bottom: 28px; }
+.contact-form { padding: 20px; }
+.contact-form label { display: block; font-size: 0.95rem; color: var(--muted); margin-bottom: 6px; }
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid #e6eef7;
+  background: #fff;
+  font-size: 0.95rem;
+  color: #0f1724;
+  outline: none;
+  box-shadow: none;
+}
+.contact-form input:focus,
+.contact-form textarea:focus { border-color: var(--accent); box-shadow: 0 6px 18px rgba(11,125,240,0.08); }
+
+.contact-form textarea { resize: vertical; min-height: 140px; }
+
+/* Form footer & status */
+#formStatus { font-size: 0.95rem; color: var(--muted); }
+.contact-form .primary-btn { padding: 10px 14px; border-radius: 10px; }
+
+/* Info aside */
+.contact-grid aside h3, .contact-grid aside h4 { margin: 0 0 8px; }
+.contact-grid aside p { margin: 6px 0; color: var(--muted); line-height: 1.4; }
+
+/* Card tweaks for this page */
+.card.contact-form, .contact-grid aside.card { box-shadow: var(--shadow); border-radius: 12px; background: var(--card); }
+
+/* Small screens */
+@media (max-width: 900px) {
+  .contact-grid { grid-template-columns: 1fr; }
+  .contact-grid aside { order: 2; }
+  .contact-form { order: 1; }
+  .contact-form textarea { min-height: 120px; }
+}
+
+/* Tiny screens */
+@media (max-width: 420px) {
+  .contact-hero h1 { font-size: 1.25rem; }
+  .contact-form input, .contact-form textarea { padding: 9px 10px; }
+}

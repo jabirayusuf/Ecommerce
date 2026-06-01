@@ -1,0 +1,88 @@
+
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>ShopFast — Responsive E-commerce</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="logo">ShopFast</div>
+      <nav class="main-nav" id="mainNav">
+        <a href="#" class="nav-link">Home</a>
+        <a href="#" class="nav-link">Shop</a>
+        <a href="#" class="nav-link">About</a>
+        <a href="/contact.html" class="nav-link">Contact</a>
+      </nav>
+
+      <div class="header-actions">
+        <input id="search" class="search" type="search" placeholder="Search products..." />
+        <button id="cartBtn" class="icon-btn" aria-label="Open cart">🛒 <span id="cartCount" class="cart-count">0</span></button>
+        <button id="menuToggle" class="icon-btn mobile-only" aria-label="Toggle menu">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <h1>Quality products — great prices</h1>
+      <p>Free shipping on orders over $50.</p>
+    </section>
+
+    <section class="controls">
+      <div class="filters">
+        <label>
+          Category
+          <select id="categoryFilter">
+            <option value="all">All</option>
+            <option value="clothing">Clothing</option>
+            <option value="electronics">Electronics</option>
+            <option value="home">Home</option>
+          </select>
+        </label>
+        <label>
+          Sort
+          <select id="sortBy">
+            <option value="default">Featured</option>
+            <option value="price-asc">Price: Low → High</option>
+            <option value="price-desc">Price: High → Low</option>
+          </select>
+        </label>
+      </div>
+    </section>
+
+    <section id="products" class="product-grid" aria-live="polite">
+      <!-- Product cards injected by JS -->
+    </section>
+  </main>
+
+  <aside id="cartSidebar" class="cart-sidebar" aria-hidden="true">
+    <div class="cart-header">
+      <h2>Your Cart</h2>
+      <button id="closeCart" class="icon-btn">✕</button>
+    </div>
+    <div id="cartItems" class="cart-items">
+      <p class="empty">Your cart is empty.</p>
+    </div>
+    <div class="cart-footer">
+      <div class="total">Total: $<span id="cartTotal">0.00</span></div>
+      <button id="checkoutBtn" class="primary-btn">Checkout</button>
+    </div>
+  </aside>
+
+  <div id="overlay" class="overlay" hidden></div>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© <span id="year"></span> ShopFast • Built for demo</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
+   
